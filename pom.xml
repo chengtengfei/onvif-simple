@@ -6,7 +6,7 @@
 
     <groupId>com.github.chengtengfei</groupId>
     <artifactId>onvif-sample</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
@@ -19,7 +19,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <maven.deploy.skip>true</maven.deploy.skip>
+        <!--<maven.deploy.skip>true</maven.deploy.skip>-->
     </properties>
 
   <dependencies>
@@ -70,9 +70,9 @@
 
     <!-- SCM信息 -> git在github上托管 -->
     <scm>
-        <connection>scm:git:git@github.com:chengtengfei/onvif-simple.git</connection>
-        <developerConnection>scm:git:ssh://github.com:chengtengfei/onvif-simple.git</developerConnection>
-        <url>https://github.com/chengtengfei/onvif-simple/tree/master</url>
+        <connection>scm:git:git@github.com:chengtengfei/OSSRH-54058.git</connection>
+        <developerConnection>scm:git:ssh://github.com:chengtengfei/OSSRH-54058.git</developerConnection>
+        <url>https://github.com/chengtengfei/OSSRH-54058/tree/master</url>
     </scm>
 
     <!-- 开发者信息 -->
