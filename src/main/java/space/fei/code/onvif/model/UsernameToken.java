@@ -1,12 +1,5 @@
 package space.fei.code.onvif.model;
 
-/**
- * Created with IntelliJ IDEA.
- * @author: tengfei.cheng
- * @date: 15:54 2019/3/2
- * @since: 0.0.1
- * @description: 登录摄像机所需要的验证信息
- */
 public class UsernameToken {
 
     private String username;

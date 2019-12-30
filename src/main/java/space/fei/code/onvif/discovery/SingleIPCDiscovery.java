@@ -15,13 +15,6 @@ import java.net.InetAddress;
 import java.util.Random;
 import java.util.UUID;
 
-/**
- * Created with IntelliJ IDEA.
- * @author: tengfei.cheng
- * @date: 10:28 2019/6/12
- * @since: 0.0.1
- * @description: 单播发现onvif设备参数
- */
 
 public class SingleIPCDiscovery {
 

@@ -15,13 +15,6 @@ import space.fei.code.onvif.util.OkHttpUtils;
 import space.fei.code.onvif.util.RegexUtils;
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * @author: tengfei.cheng
- * @date: 10:29 2019/6/12
- * @since: 0.0.1
- * @description: 获取onvif设备信息
- */
 public class OnvifService {
 
     private final static Logger LOGGER = Loggers.getLogger(OnvifService.class);

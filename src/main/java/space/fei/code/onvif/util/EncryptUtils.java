@@ -11,13 +11,6 @@ import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created with IntelliJ IDEA.
- * @author: tengfei.cheng
- * @date: 10:29 2019/6/12
- * @since: 0.0.1
- * @description: 请求辅助类
- */
 public class EncryptUtils {
 
     private static String created() {

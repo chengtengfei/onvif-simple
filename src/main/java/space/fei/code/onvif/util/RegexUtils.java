@@ -35,9 +35,6 @@ public class RegexUtils {
         return "";
     }
 
-    /**
-     * 验证IP地址
-     */
     public static boolean isIp( String str) {
         return isMatch(PATTERN_REGEX_IP, str);
     }

@@ -13,13 +13,6 @@ import space.fei.code.onvif.util.XMLUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * @author: tengfei.cheng
- * @date: 10:28 2019/6/12
- * @since: 0.0.1
- * @description: onvif设备对接参数
- */
 public class CapabilitiesService {
 
     private static OkHttpUtils okHttpUtils = new OkHttpUtils();

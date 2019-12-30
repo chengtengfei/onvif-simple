@@ -36,11 +36,6 @@ public class NetworkUtils {
         return all;
     }
 
-    /**
-     * 正确的IP拿法，即优先拿site-local地址
-     * @return
-     * @throws UnknownHostException
-     */
     public static InetAddress getLocalHostLANAddress() throws UnknownHostException {
         try {
             InetAddress candidateAddress = null;

@@ -11,13 +11,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * @author: tengfei.cheng
- * @date: 10:29 2019/6/12
- * @since: 0.0.1
- * @description: onvif  XML文档解析
- */
 public class XMLUtils {
 
     public static String parseOnvifAddress(String xmlContent) throws Exception {

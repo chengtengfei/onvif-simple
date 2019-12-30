@@ -19,13 +19,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-/**
- * Created with IntelliJ IDEA.
- * @author: tengfei.cheng
- * @date: 9:36 2019/12/23
- * @since: 0.0.1
- * @description: 组播发现同网络onvif设备
- */
+
 public class IPCDiscovery {
 
     private final static Logger LOGGER = Loggers.getLogger(IPCDiscovery.class);
