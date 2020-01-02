@@ -7,6 +7,7 @@ public class UsernameToken {
     private String nonce;
     private String created;
 
+
     private UsernameToken(Builder builder) {
         setUsername(builder.username);
         setPassword(builder.password);

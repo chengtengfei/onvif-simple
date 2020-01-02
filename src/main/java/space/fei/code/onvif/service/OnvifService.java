@@ -53,30 +53,6 @@ public class OnvifService {
             }
 
             return profiles;
-
-            // if (profiles.size() > 0) {
-            //     for (ProfileInfo profileInfo : profiles) {
-            //         JSONObject dataObject = new JSONObject();
-            //         dataObject.put("video_profile", profileInfo.getName() + "(" + profileInfo.getToken() + ")");
-            //         dataObject.put("video_encoding", profileInfo.getVideoInfo().getVideoEncoding());
-            //         dataObject.put("video_frame_rate_limit", profileInfo.getVideoInfo().getFrameRateLimit());
-            //         dataObject.put("video_bitrate_limit", profileInfo.getVideoInfo().getBitrateLimit());
-            //         dataObject.put("video_stream_uri", profileInfo.getVideoInfo().getStreamUri());
-            //         if (!StringUtils.isEmpty(profileInfo.getVideoInfo().getStreamUri())) {
-            //             Integer videoWidth = profileInfo.getVideoInfo().getVideoWidth();
-            //             Integer videoHeight = profileInfo.getVideoInfo().getVideoHeight();
-            //             if (videoWidth == null || videoHeight == null || videoWidth <=0 || videoHeight <= 0) {
-            //                 dataObject.put("video_width", 0);
-            //                 dataObject.put("video_height", 0);
-            //             } else {
-            //                  dataObject.put("video_width", profileInfo.getVideoInfo().getVideoWidth());
-            //                  dataObject.put("video_height", profileInfo.getVideoInfo().getVideoHeight());
-            //             }
-            //         }
-            //         dataArray.add(dataObject);
-            //     }
-            //
-            // }
         } catch (Exception e) {
             LOGGER.error("与摄像机[" + onvifDeviceInfo + "]交互通信发生错误, " + ExceptionUtils.getStackTrace(e));
             throw new Exception("与摄像机交互通信发生错误,请检查网络是否连通、摄像机是否支持Onvif协议或者摄像机是否正常工作");

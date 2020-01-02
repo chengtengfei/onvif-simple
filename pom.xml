@@ -6,7 +6,7 @@
 
     <groupId>com.github.chengtengfei</groupId>
     <artifactId>onvif-sample</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.4</version>
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
@@ -140,7 +140,7 @@
             <distributionManagement>
                 <snapshotRepository>
                     <id>snapshots</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
                 </snapshotRepository>
                 <repository>
                     <id>release</id>

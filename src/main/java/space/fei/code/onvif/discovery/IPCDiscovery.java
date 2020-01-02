@@ -126,6 +126,7 @@ public class IPCDiscovery {
         int port = random.nextInt(65535 - 1024 + 1) + 1024;
         if (StringUtils.isEmpty(localIp)) {
             localIp = NetworkUtils.getLocalHostLANAddress().getHostAddress();
+            LOGGER.debug("discovery ipc use ip [" + localIp + "]");
         }
         final MulticastSocket socket = createMulticastGroupAndJoin(MULTICAST_IP, port, localIp);
         // 向组播组发送数据

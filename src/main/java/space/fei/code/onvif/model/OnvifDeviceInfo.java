@@ -7,6 +7,15 @@ public class OnvifDeviceInfo {
     private String username;
     private String password;
 
+    public OnvifDeviceInfo() {}
+
+    private OnvifDeviceInfo(Builder builder) {
+        setIp(builder.ip);
+        setOnvifAddress(builder.onvifAddress);
+        setUsername(builder.username);
+        setPassword(builder.password);
+    }
+
     public String getIp() {
         return ip;
     }
@@ -39,6 +48,8 @@ public class OnvifDeviceInfo {
         this.password = password;
     }
 
+
+
     @Override
     public String toString() {
         return "OnvifDeviceInfo{" +
@@ -47,5 +58,39 @@ public class OnvifDeviceInfo {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    public static final class Builder {
+        private String ip;
+        private String onvifAddress;
+        private String username;
+        private String password;
+
+        public Builder() {
+        }
+
+        public Builder ip(String val) {
+            ip = val;
+            return this;
+        }
+
+        public Builder onvifAddress(String val) {
+            onvifAddress = val;
+            return this;
+        }
+
+        public Builder username(String val) {
+            username = val;
+            return this;
+        }
+
+        public Builder password(String val) {
+            password = val;
+            return this;
+        }
+
+        public OnvifDeviceInfo build() {
+            return new OnvifDeviceInfo(this);
+        }
     }
 }
