@@ -1,14 +1,14 @@
 
-[English](README-EN.md)
+[中文](README.md)
 
 # onvif-simple
 
-实现了部分Onvif Profile S 标准。
+Implement part of the Onvif Profile-S specification. 
 
 ## Getting Started
 
 This is a maven-jar project writed by Java, and you can easily use it in your project builded by maven.
-这是一个用Java写的maven jar包，你可以方便的在使用maven构建的项目中使用它。
+
 ```
 <dependency>
     <groupId>com.github.chengtengfei</groupId>
@@ -21,7 +21,7 @@ This is a maven-jar project writed by Java, and you can easily use it in your pr
 
 ### How to use it
 
-需要引入的包
+With import package
 
 ```
 import space.fei.code.onvif.discovery.IPCDiscovery;
@@ -31,7 +31,7 @@ import space.fei.code.onvif.model.ProfileInfo;
 import space.fei.code.onvif.service.OnvifService;
 ```
 
-使用你计算机的默认IP自动发现设备（会发现和你计算机IP所在同一局域网的设备）。
+Auto discovery onvif device by your defalut computer IP.
 ```
 try {
     List<OnvifDeviceInfo> onvifDeviceInfoList = IPCDiscovery.discovery();
@@ -41,7 +41,7 @@ try {
 }
 ```
 
-使用指定的IP自动发现设备（适合多网卡计算机，指定其中一个网卡IP来发现同一局域网下的设备）。
+Auto discovery onvif device by a appointed IP.
 ```
 try {
     List<OnvifDeviceInfo> onvifDeviceInfoList = IPCDiscovery.discovery("192.168.101.1");
@@ -51,7 +51,7 @@ try {
 }
 ```
 
-获取Onvif服务地址.
+Get onvif device address.
 ```
 try {
     OnvifDeviceInfo onvifDeviceInfo = new OnvifDeviceInfo();
@@ -67,7 +67,7 @@ try {
 // Output : OnvifDeviceInfo{ip='192.168.101.234', onvifAddress='http://192.168.101.234:2000/onvif/device_service', username='admin', password='admin'}
 ```
 
-获取设备媒体信息。
+Get onvif device profile
 ```
 try {
     OnvifDeviceInfo onvifDeviceInfo = new OnvifDeviceInfo();
