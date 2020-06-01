@@ -6,11 +6,11 @@
 
     <groupId>com.github.chengtengfei</groupId>
     <artifactId>onvif-sample</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <packaging>jar</packaging>
 
     <name>${project.groupId}:${project.artifactId}</name>
-    <description>The test uploads the jar to the maven central repository</description>
+    <description>Implement part of the Onvif Profile-S specification</description>
     <url>https://github.com/chengtengfei/onvif-simple</url>
 
     <properties>

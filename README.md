@@ -7,7 +7,6 @@
 
 ## Getting Started
 
-This is a maven-jar project writed by Java, and you can easily use it in your project builded by maven.
 这是一个用Java写的maven jar包，你可以方便的在使用maven构建的项目中使用它。
 ```
 <dependency>
