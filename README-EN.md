@@ -24,11 +24,11 @@ This is a maven-jar project writed by Java, and you can easily use it in your pr
 With import package
 
 ```
-import space.fei.code.onvif.discovery.IPCDiscovery;
-import space.fei.code.onvif.discovery.SingleIPCDiscovery;
-import space.fei.code.onvif.model.OnvifDeviceInfo;
-import space.fei.code.onvif.model.ProfileInfo;
-import space.fei.code.onvif.service.OnvifService;
+import com.github.chengtengfei.onvif.discovery.IPCDiscovery;
+import com.github.chengtengfei.onvif.discovery.SingleIPCDiscovery;
+import com.github.chengtengfei.onvif.model.OnvifDeviceInfo;
+import com.github.chengtengfei.onvif.model.ProfileInfo;
+import com.github.chengtengfei.onvif.service.OnvifService;
 ```
 
 Auto discovery onvif device by your defalut computer IP.

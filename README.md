@@ -23,11 +23,11 @@
 需要引入的包
 
 ```
-import space.fei.code.onvif.discovery.IPCDiscovery;
-import space.fei.code.onvif.discovery.SingleIPCDiscovery;
-import space.fei.code.onvif.model.OnvifDeviceInfo;
-import space.fei.code.onvif.model.ProfileInfo;
-import space.fei.code.onvif.service.OnvifService;
+import com.github.chengtengfei.onvif.discovery.IPCDiscovery;
+import com.github.chengtengfei.onvif.discovery.SingleIPCDiscovery;
+import com.github.chengtengfei.onvif.model.OnvifDeviceInfo;
+import com.github.chengtengfei.onvif.model.ProfileInfo;
+import com.github.chengtengfei.onvif.service.OnvifService;
 ```
 
 使用你计算机的默认IP自动发现设备（会发现和你计算机IP所在同一局域网的设备）。
