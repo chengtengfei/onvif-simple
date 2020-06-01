@@ -18,7 +18,7 @@ public final class Loggers {
     public static Logger getLogger(String suffix) {
         Assertions.notNull("suffix", suffix);
         if (!suffix.startsWith(".") && !suffix.endsWith(".")) {
-            String name = "space.fei.code." + suffix;
+            String name = "com.github.chengtengfei." + suffix;
             return (Logger)(USE_SLF4J ? new SLF4JLogger(name) : new JULLogger(name));
         } else {
             throw new LogException("The suffix can not start or end with a '.'");
