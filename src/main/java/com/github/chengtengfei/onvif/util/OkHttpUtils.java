@@ -32,12 +32,12 @@ public class OkHttpUtils {
 
         LOGGER.debug("response code = " + response.code());
         if (response.isSuccessful()) {
-            String s = response.body().string();
-            return s;
-        } else if (response.code() >= 400 && response.code() < 500) {
+            return response.body() == null ? "" : response.body().string();
+        } else if (response.code() == 401) {
+            LOGGER.debug("response code: " + response.code() + ", response body: " + (response.body() == null ? "" : response.body().string()));
             throw new Exception("设备认证失败(用户名或密码错误)");
         } else {
-            LOGGER.debug("返回不成功:  "+ response.body().string());
+            LOGGER.debug("response code: " + response.code() + ", response body: " + (response.body() == null ? "" : response.body().string()));
             throw new Exception("返回不成功");
         }
     }

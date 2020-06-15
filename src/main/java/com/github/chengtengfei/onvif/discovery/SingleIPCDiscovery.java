@@ -96,7 +96,7 @@ public class SingleIPCDiscovery {
 
     public static void fillOnvifAddress(OnvifDeviceInfo onvifDeviceInfo) throws Exception {
         if (StringUtils.isEmpty(onvifDeviceInfo.getIp()) || !RegexUtils.isIp(onvifDeviceInfo.getIp())) {
-            throw new RuntimeException("onvif 设备的ip不合法");
+            throw new RuntimeException("Onvif设备的ip不合法");
         }
 
         String onvifAddress = null;
