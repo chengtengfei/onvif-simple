@@ -1,15 +1,16 @@
 package com.github.chengtengfei.onvif.util;
 
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import com.github.chengtengfei.onvif.diagnostics.logging.Logger;
-import com.github.chengtengfei.onvif.diagnostics.logging.Loggers;
+//import com.github.chengtengfei.onvif.diagnostics.logging.Logger;
+//import com.github.chengtengfei.onvif.diagnostics.logging.Loggers;
 
-
+@Slf4j
 public class OkHttpUtils {
 
-    private final static Logger LOGGER = Loggers.getLogger(OkHttpUtils.class);
+//    private final static Logger LOGGER = Loggers.getLogger(OkHttpUtils.class);
 
     public String okHttp3XmlPost(String url, String body) throws Exception {
 
@@ -24,20 +25,25 @@ public class OkHttpUtils {
         try {
             response = OkHttpClientSingleton.getInstance().newCall(request).execute();
         } catch (Exception e) {
-            LOGGER.debug("连接[" + url + "]异常");
+            log.error("连接[{}]异常");
             throw e;
         }
+        log.debug("连接 url=[{}], 发送[{}],  返回[{}]", url, body, response.toString());
+//        LOGGER.debug("连接 url=[" + url + "], 发送[" + body + "],  返回[" + response.toString() + "]");
 
-        LOGGER.debug("连接 url=[" + url + "], 发送[" + body + "],  返回[" + response.toString() + "]");
-
-        LOGGER.debug("response code = " + response.code());
+        log.debug("response code = {}", response.code());
+//        LOGGER.debug("response code = " + response.code());
         if (response.isSuccessful()) {
             return response.body() == null ? "" : response.body().string();
         } else if (response.code() == 401) {
-            LOGGER.debug("response code: " + response.code() + ", response body: " + (response.body() == null ? "" : response.body().string()));
+            log.debug("response code: {}, response body: {}" ,
+                    response.code(), response.body() == null ? "" : response.body().string());
+//            LOGGER.debug("response code: " + response.code() + ", response body: " + (response.body() == null ? "" : response.body().string()));
             throw new Exception("设备认证失败(用户名或密码错误)");
         } else {
-            LOGGER.debug("response code: " + response.code() + ", response body: " + (response.body() == null ? "" : response.body().string()));
+            log.debug("response code: {}, response body: {}" ,
+                    response.code(),(response.body() == null ? "" : response.body().string()));
+//            LOGGER.debug("response code: " + response.code() + ", response body: " + (response.body() == null ? "" : response.body().string()));
             throw new Exception("返回不成功");
         }
     }
@@ -55,7 +61,8 @@ public class OkHttpUtils {
         try {
             response = OkHttpClientSingleton.getInstance().newCall(request).execute();
         } catch (Exception e) {
-            LOGGER.debug("连接[" + url + "]异常");
+            log.debug("连接[" + url + "]异常");
+//            LOGGER.debug("连接[" + url + "]异常");
             throw new RuntimeException(e);
         }
 

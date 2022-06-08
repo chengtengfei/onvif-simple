@@ -1,9 +1,5 @@
 package com.github.chengtengfei.onvif.service;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.exception.ExceptionUtils;
-import com.github.chengtengfei.onvif.diagnostics.logging.Logger;
-import com.github.chengtengfei.onvif.diagnostics.logging.Loggers;
 import com.github.chengtengfei.onvif.discovery.SingleIPCDiscovery;
 import com.github.chengtengfei.onvif.model.OnvifDeviceInfo;
 import com.github.chengtengfei.onvif.model.ProfileInfo;
@@ -13,11 +9,16 @@ import com.github.chengtengfei.onvif.util.EncryptUtils;
 import com.github.chengtengfei.onvif.util.HttpAuths;
 import com.github.chengtengfei.onvif.util.OkHttpUtils;
 import com.github.chengtengfei.onvif.util.RegexUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
 import java.util.List;
 
+@Slf4j
 public class OnvifService {
 
-    private final static Logger LOGGER = Loggers.getLogger(OnvifService.class);
+//    private final static Logger LOGGER = Loggers.getLogger(OnvifService.class);
 
 
     private static OkHttpUtils okHttpUtils = new OkHttpUtils();
@@ -32,7 +33,7 @@ public class OnvifService {
         }
 
         try {
-            SingleIPCDiscovery.fillOnvifAddress(onvifDeviceInfo);
+//    profile = {ProfileInfo@2451} "ProfileInfo{name='ProfileName001', token='ProfileToken001', videoInfo=VideoInfo{videoEncoding='null', videoWidth=null, videoHeight=null, frameRateLimit=null, bitrateLimit=null, streamUri='null'}}"        SingleIPCDiscovery.fillOnvifAddress(onvifDeviceInfo);
             UsernameToken usernameToken = EncryptUtils.generate(onvifDeviceInfo.getUsername(), onvifDeviceInfo.getPassword());
 
             String mediaUrl = CapabilitiesService.getMediaUrl(onvifDeviceInfo, usernameToken);
@@ -54,7 +55,7 @@ public class OnvifService {
 
             return profiles;
         } catch (Exception e) {
-            LOGGER.error("与摄像机[" + onvifDeviceInfo + "]交互通信发生错误, " + ExceptionUtils.getStackTrace(e));
+            log.error("与摄像机[{}]交互通信发生错误, {}" , onvifDeviceInfo, ExceptionUtils.getStackTrace(e));
             throw new Exception("与摄像机交互通信发生错误,请检查网络是否连通、摄像机是否支持Onvif协议或者摄像机是否正常工作");
         }
 
@@ -81,7 +82,7 @@ public class OnvifService {
             try {
                 img = okHttpUtils.getFile(snapshotUri, authorization);
             } catch (Exception e) {
-                LOGGER.error("根据抓拍uri[" + snapshotUri + "]获取图片出错, " + ExceptionUtils.getStackTrace(e));
+                log.error("根据抓拍uri[{}]获取图片出错, {}" ,snapshotUri, ExceptionUtils.getStackTrace(e));
                 if (i == profiles.size() - 1) {
                     throw new Exception(e);
                 }

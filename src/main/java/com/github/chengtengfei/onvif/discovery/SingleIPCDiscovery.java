@@ -1,11 +1,10 @@
 package com.github.chengtengfei.onvif.discovery;
 
-import org.apache.commons.lang3.StringUtils;
-import com.github.chengtengfei.onvif.diagnostics.logging.Logger;
-import com.github.chengtengfei.onvif.diagnostics.logging.Loggers;
 import com.github.chengtengfei.onvif.model.OnvifDeviceInfo;
 import com.github.chengtengfei.onvif.util.RegexUtils;
 import com.github.chengtengfei.onvif.util.XMLUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -15,10 +14,8 @@ import java.net.InetAddress;
 import java.util.Random;
 import java.util.UUID;
 
-
+@Slf4j
 public class SingleIPCDiscovery {
-
-    private final static Logger LOGGER = Loggers.getLogger(SingleIPCDiscovery.class);
 
     /**
      * 设置接收数据的超时时间
@@ -78,7 +75,7 @@ public class SingleIPCDiscovery {
             }catch(InterruptedIOException e){
                 //如果接收数据时阻塞超时，重发并减少一次重发的次数
                 tries += 1;
-                LOGGER.debug("Time out, " + (MAXNUM - tries) + " more tries...");
+                log.debug("Time out, {},  more tries..", (MAXNUM - tries));
             }
         }
         String receiveContent = "";
@@ -87,7 +84,8 @@ public class SingleIPCDiscovery {
             receiveContent = new String(dpReceive.getData(),0,dpReceive.getLength());
         }else{
             //如果重发MAXNUM次数据后，仍未获得服务器发送回来的数据，则打印如下信息
-            LOGGER.debug("No response -- give up.");
+            log.debug("No response -- give up.");
+//            LOGGER.debug("No response -- give up.");
         }
         ds.close();
 
@@ -101,6 +99,7 @@ public class SingleIPCDiscovery {
 
         String onvifAddress = null;
         String xmlContent = getOnvifAddressByIp(onvifDeviceInfo.getIp());
+        log.debug("xmlContent: {}" , xmlContent);
         String onvifAddressAll = XMLUtils.parseOnvifAddress(xmlContent);
         onvifAddress = onvifAddressAll.trim().split(" ")[0];
 

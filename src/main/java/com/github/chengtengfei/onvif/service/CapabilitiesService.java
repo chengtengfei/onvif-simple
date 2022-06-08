@@ -1,14 +1,13 @@
 package com.github.chengtengfei.onvif.service;
 
 
-import org.apache.commons.lang3.StringUtils;
 import com.github.chengtengfei.onvif.discovery.SingleIPCDiscovery;
 import com.github.chengtengfei.onvif.model.OnvifDeviceInfo;
 import com.github.chengtengfei.onvif.model.ProfileInfo;
 import com.github.chengtengfei.onvif.model.UsernameToken;
 import com.github.chengtengfei.onvif.util.OkHttpUtils;
 import com.github.chengtengfei.onvif.util.XMLUtils;
-
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;

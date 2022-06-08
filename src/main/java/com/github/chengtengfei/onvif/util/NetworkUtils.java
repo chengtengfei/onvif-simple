@@ -1,8 +1,7 @@
 package com.github.chengtengfei.onvif.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import com.github.chengtengfei.onvif.diagnostics.logging.Logger;
-import com.github.chengtengfei.onvif.diagnostics.logging.Loggers;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -11,9 +10,8 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 public class NetworkUtils {
-
-    private final static Logger LOGGER = Loggers.getLogger(NetworkUtils.class);
 
     @SuppressWarnings("unchecked")
     public static Map getAllNetAddress() {
@@ -31,7 +29,7 @@ public class NetworkUtils {
                 }
             }
         } catch (Exception e) {
-            LOGGER.error(ExceptionUtils.getStackTrace(e));
+            log.error(ExceptionUtils.getStackTrace(e));
         }
         return all;
     }
@@ -90,7 +88,7 @@ public class NetworkUtils {
             }
             return id;
         } catch (Exception e) {
-            LOGGER.error("获取机器ID出错, " + ExceptionUtils.getStackTrace(e));
+            log.error("获取机器ID出错, " + ExceptionUtils.getStackTrace(e));
             return 10080L;
         }
     }
