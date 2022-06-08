@@ -1,10 +1,10 @@
 package com.github.chengtengfei.onvif.util;
 
+import com.github.chengtengfei.onvif.model.ProfileInfo;
+import com.github.chengtengfei.onvif.model.VideoInfo;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-import com.github.chengtengfei.onvif.model.ProfileInfo;
-import com.github.chengtengfei.onvif.model.VideoInfo;
 
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;

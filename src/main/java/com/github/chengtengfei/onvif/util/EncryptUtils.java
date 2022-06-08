@@ -1,10 +1,10 @@
 package com.github.chengtengfei.onvif.util;
 
 
+import com.github.chengtengfei.onvif.model.UsernameToken;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.net.util.Base64;
-import org.apache.commons.codec.digest.DigestUtils;
-import com.github.chengtengfei.onvif.model.UsernameToken;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

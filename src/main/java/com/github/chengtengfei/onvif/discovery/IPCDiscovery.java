@@ -1,14 +1,13 @@
 package com.github.chengtengfei.onvif.discovery;
 
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.exception.ExceptionUtils;
-import com.github.chengtengfei.onvif.diagnostics.logging.Logger;
-import com.github.chengtengfei.onvif.diagnostics.logging.Loggers;
 import com.github.chengtengfei.onvif.model.OnvifDeviceInfo;
 import com.github.chengtengfei.onvif.util.NetworkUtils;
 import com.github.chengtengfei.onvif.util.RegexUtils;
 import com.github.chengtengfei.onvif.util.XMLUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 import java.net.DatagramPacket;
 import java.net.InetAddress;
@@ -19,10 +18,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-
+@Slf4j
 public class IPCDiscovery {
 
-    private final static Logger LOGGER = Loggers.getLogger(IPCDiscovery.class);
 
     private static final String MULTICAST_IP = "239.255.255.250";
     private static final Integer MULTICAST_PORT = 3702;
@@ -66,7 +64,7 @@ public class IPCDiscovery {
             socket.joinGroup(group);
             return socket;
         } catch (Exception e1) {
-            LOGGER.warn("createMulticastGroupAndJoin----->>>>Error: {}",  e1);
+            log.warn("createMulticastGroupAndJoin----->>>>Error: {}",  e1);
             return null;
         }
     }
@@ -86,7 +84,7 @@ public class IPCDiscovery {
             socket.send(packet);
             // LOGGER.info("------->>>>>以UDP形式发送组播报文");
         } catch (Exception e1) {
-            LOGGER.error("sendData------>>>>>Error: {}", e1);
+            log.error("sendData------>>>>>Error: {}", e1);
         }
     }
 
@@ -126,7 +124,8 @@ public class IPCDiscovery {
         int port = random.nextInt(65535 - 1024 + 1) + 1024;
         if (StringUtils.isEmpty(localIp)) {
             localIp = NetworkUtils.getLocalHostLANAddress().getHostAddress();
-            LOGGER.debug("discovery ipc use ip [" + localIp + "]");
+            log.debug("discovery ipc use ip [{}]", localIp);
+//            LOGGER.debug("discovery ipc use ip [" + localIp + "]");
         }
         final MulticastSocket socket = createMulticastGroupAndJoin(MULTICAST_IP, port, localIp);
         // 向组播组发送数据
@@ -139,7 +138,8 @@ public class IPCDiscovery {
             if (StringUtils.isEmpty(message)) {
                 break;
             }
-            LOGGER.debug( message);
+            log.debug(message);
+//            LOGGER.debug( message);
             receiveDataList.add(message);
             if (System.currentTimeMillis() - startTime > DISCOVERY_TIMEOUT_MILL_SECONDS) {
                 break;
@@ -154,7 +154,7 @@ public class IPCDiscovery {
                 onvifDeviceInfo.setOnvifAddress(onvifAddress);
                 onvifDeviceInfo.setIp(RegexUtils.extractIpFromString(onvifAddress));
             } catch (Exception e) {
-                LOGGER.info("解析地址[" + onvifMessage + "]出错, " + ExceptionUtils.getStackTrace(e));
+                log.info("解析地址[{}]出错,{} " , onvifMessage, ExceptionUtils.getStackTrace(e));
                 onvifDeviceInfo.setOnvifAddress("");
                 onvifDeviceInfo.setIp("");
             }
